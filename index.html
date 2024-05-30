@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CriFilmes - Início</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CriFilmes</h1>
+        <h2>Um site de críticas de filmes</h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="criticas_atuais.html">Críticas Atuais</a></li>
+            <li><a href="proximas_criticas.html">Próximas Críticas</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="https://assets.mubicdn.net/images/film/210029/image-w1280.jpg?1636971271" alt="Cena de filme 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="https://stockeycentre.com/wp-content/uploads/2022/08/p21252841_v_h8_aa.jpg" alt="Cena de filme 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="https://ntvb.tmsimg.com/assets/p22982296_v_h8_ab.jpg?w=1280&h=720" alt="Cena de filme 3">
+            </div>
+
+            <!-- Botão -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div class="paragrafos">
+            <div class="paragrafo">
+                <h3>Sobre</h3>
+                <p>Somos um site especializado em críticas de filmes pré-selecionados. <br>
+                <a href="sobre.html"><button>Saiba mais</button></a></p>
+            </div>
+            <div class="paragrafo">
+                <h3>Nos avalie</h3>
+                <p>Avalie nosso site</p>
+                <div class="estrelas">
+                    <input type="radio" id="vazio" name="estrela" value="" checked>
+                    <label for="estrela_um">&#9733;</label>
+                    <input type="radio" id="estrela_um" name="estrela" value="1">
+                    <label for="estrela_dois">&#9733;</label>
+                    <input type="radio" id="estrela_dois" name="estrela" value="2">
+                    <label for="estrela_tres">&#9733;</label>
+                    <input type="radio" id="estrela_tres" name="estrela" value="3">
+                    <label for="estrela_quatro">&#9733;</label>
+                    <input type="radio" id="estrela_quatro" name="estrela" value="4">
+                    <label for="estrela_cinco">&#9733;</label>
+                    <input type="radio" id="estrela_cinco" name="estrela" value="5">
+                </div>
+                <button onclick="enviarAvaliacao()">Enviar</button>
+            </div>
+        </div>
+        <div class="adicionar-paragrafo">
+            <h3>Mande sua sugestão de crítica</h3>
+            <form id="form-email">
+                <input type="text" id="titulo" placeholder="Título">
+                <textarea id="conteudo" placeholder="Conteúdo"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 CriFilmes
+    </footer>
+
+    <script>
+        // JavaScript para o slideshow
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        // Função de auto-play
+        function autoPlaySlides() {
+            plusSlides(1);
+            setTimeout(autoPlaySlides, 9000);
+        }
+
+        autoPlaySlides();
+
+        // Função para enviar avaliação
+        function enviarAvaliacao() {
+            // Aqui você pode adicionar o código para enviar a avaliação para o backend
+            alert("Avaliação enviada com sucesso!");
+        }
+    </script>
+</body>
+</html>
